@@ -1,5 +1,8 @@
 package com.example;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,13 +28,27 @@ public class WidgetServiceImpl implements WidgetService {
 
     @Override
     public String listWidgets() {
-        return null;
+        ObjectMapper mapper = new ObjectMapper();
+        String json = null;
+        try {
+            json = mapper.writeValueAsString(widgetMap.values());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 
     @Override
     public String getWidge(int id) {
-        widgetMap.get(id);
-        return null;
+        ObjectMapper mapper = new ObjectMapper();
+        String json= null;
+        try {
+            json = mapper.writeValueAsString(widgetMap.get(id));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return json;
     }
 
     @Override

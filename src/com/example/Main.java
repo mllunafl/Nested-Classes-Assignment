@@ -25,9 +25,20 @@ public class Main {
         System.out.println(foo.bar(""));
         System.out.println(foo.bar("    "));
         System.out.println(foo.bar(in));
+
+        WidgetServiceImpl widget = new WidgetServiceImpl();
+        System.out.println( widget.createWidget("Widget Name","Best Type"));
+        System.out.println(widget.createWidget("More Widgets","So-so Type"));
+        System.out.println(widget.addAttachment(2,"All Atchments","Epic"));
+        System.out.println(widget.addAttachment(1,"Widget Attachment","Awesome Attachment"));
+        System.out.println(widget.getWidge(1));
+        System.out.println(widget.listWidgets());
     }
 
     interface Foo {
         boolean bar (String in);
     }
+
+
+
 }
